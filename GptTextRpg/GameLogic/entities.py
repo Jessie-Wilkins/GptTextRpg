@@ -11,6 +11,7 @@ class BasicEntity():
         self.endurance: int = 100
         self.currentHealth: int = 100
         self.currentEndurance: int = 100
+        self.enduranceRecovery: int = 100
 
     def setHealth(self, health: int):
         self.health = health
@@ -56,3 +57,9 @@ class BasicEntity():
 
     def addCurrentEndurance(self, added_points):
         self.currentEndurance = self.currentEndurance + added_points
+
+    def setEnduranceRecovery(self, enduranceRecovery):
+        self.enduranceRecovery = enduranceRecovery
+
+    def getEnduranceRecovery(self):
+        return self.enduranceRecovery
