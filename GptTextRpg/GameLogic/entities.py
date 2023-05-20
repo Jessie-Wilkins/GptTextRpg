@@ -12,6 +12,7 @@ class BasicEntity():
         self.currentHealth: int = 100
         self.currentEndurance: int = 100
         self.enduranceRecovery: int = 100
+        self.name: str = "Blank Slate"
 
     def setHealth(self, health: int):
         self.health = health
@@ -43,9 +44,6 @@ class BasicEntity():
     def getCurrentEndurance(self):
         return self.currentEndurance
     
-    def attack(self):
-        return self.getStrength()
-    
     def reduceCurrentHealth(self, reduced_points):
         self.currentHealth = self.currentHealth - reduced_points
 
@@ -63,3 +61,20 @@ class BasicEntity():
 
     def getEnduranceRecovery(self):
         return self.enduranceRecovery
+    
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+    
+class EntityInteraction():
+    
+    @staticmethod
+    def entityAttackEntity(entity1, entity2):
+
+        entity2.reduceCurrentHealth(entity1.getStrength())
+
+    
+
+
