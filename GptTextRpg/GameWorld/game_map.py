@@ -21,6 +21,12 @@ class Room:
     def getEntities(self):
         return self.entity_list
     
+    def getEntityStrings(self):
+        entity_strings = []
+        for entity in self.entity_list:
+            entity_strings.append(entity.getName())
+        return entity_strings
+    
     def addItem(self, item):
         self.item_list.append(item)
 

@@ -33,7 +33,20 @@ def test_that_room_can_get_items(room):
     room.addItem("Vase")
     
     assert room.getItems()[0] == "Vase"
-
     
+def test_that_room_can_get_list_of_entity_strings(room):
 
+    entity = BasicEntity()
+
+    entity.setName("Janitor")
+    entity.setStrength(50)
+    entity.setHealth(50)
+    entity.setCurrentEndurance(50)
+    entity.setCurrentHealth(50)
+    entity.setEnduranceRecovery(50)
+    entity.setEndurance(50)
+
+    room.addEntity(entity)
+
+    assert room.getEntityStrings()[0] == "Janitor"
     

@@ -84,3 +84,7 @@ def test_that_entities_can_attack(entity, enemy):
 def test_that_entities_can_get_name(entity):
 
     assert entity.getName() == "Janitor"
+
+def test_that_entity_string_gives_entity_name(entity):
+
+    assert str(entity) == "Janitor"

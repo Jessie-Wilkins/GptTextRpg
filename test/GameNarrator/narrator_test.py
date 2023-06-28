@@ -3,8 +3,8 @@ from GptTextRpg.GameWorld.game_map import Room
 from GptTextRpg.GameLogic.entities import BasicEntity
 from GptTextRpg.GameNarrator.narrator import GameNarrator
 
-@pytest.fixture(autouse=True)
-def room():
+def getDescription():
+    narrator = GameNarrator()
     room = Room()
     room.setName("Kitchen")
     entity = BasicEntity()
@@ -19,11 +19,16 @@ def room():
     room.addItem("Vase")
 
     room.addEntity(entity)
-    return room
-
-def test_describe_room_can_describe_room_with_all_items(room):
-    narrator = GameNarrator()
-    
     description = narrator.describe_room(room)
+    return description
 
-    assert "Vase" in description
+description = getDescription()
+
+def test_describe_room_can_describe_room_with_all_items():
+    assert "vase" in description.lower()
+
+def test_describe_room_can_identify_type_of_room():
+    assert "kitchen" in description.lower()
+
+def test_describe_room_can_describe_room_with_all_entities():
+    assert "janitor" in description.lower()
